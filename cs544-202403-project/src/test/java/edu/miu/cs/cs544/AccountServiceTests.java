@@ -27,7 +27,7 @@ public class AccountServiceTests {
     @MockBean
     AttendanceRepository attendanceRepository;
     AccountService accountService;
-    List<String> emails = new ArrayList<>(List.of("thephong.nguyen@miu.edu"));
+    List<String> emails = new ArrayList<>(List.of("bruce.banner@miu.edu"));
     List<Attendance> attendances = new ArrayList<>(List.of(new Attendance()));
 
     @Before
