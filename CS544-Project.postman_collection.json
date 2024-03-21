@@ -1,0 +1,834 @@
+{
+	"info": {
+		"_postman_id": "19678f40-7b61-43e9-b1ed-b7a3409116d1",
+		"name": "CS544-Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32641678"
+	},
+	"item": [
+		{
+			"name": "Scanner",
+			"item": [
+				{
+					"name": "Create Scanners",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"SCN001\",\r\n    \"location\": {\r\n        \"id\": 1,\r\n        \"name\": \"Warehouse A\",\r\n        \"address\": \"123 Main St\"\r\n    },\r\n    \"accountType\": \"VIRTUAL_DOLLAR\",\r\n    \"event\": {\r\n        \"id\": 3,\r\n        \"name\": \"Annual Conference\",\r\n        \"description\": \"An annual conference for professionals\",\r\n        \"accountType\": \"DINING_POINTS\",\r\n        \"startDateTime\": \"2023-05-15T09:00:00\",\r\n        \"endDateTime\": \"2023-05-17T17:00:00\",\r\n        \"schedule\": [],\r\n        \"participants\": []\r\n    },\r\n    \"auditData\": {\r\n        \"createdBy\": \"admin\",\r\n        \"createdAt\": \"2022-03-25T10:15:30Z\",\r\n        \"updatedBy\": \"admin\",\r\n        \"updatedAt\": \"2022-03-25T10:15:30Z\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/badge-system/scanners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"scanners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Scanners",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"code\": \"1234Scanner\",\r\n    \"accountType\": \"DINING_POINTS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/badge-system/scanners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"scanners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Scanners",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/scanners/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"scanners",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scanners (Fetch All)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/scanners?fetch-all=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"scanners"
+							],
+							"query": [
+								{
+									"key": "fetch-all",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Scanner by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/scanners/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"scanners",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "Create Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Warehouse A\",\r\n    \"description\": \"Main warehouse for storing products\",\r\n    \"type\": \"LIBRARY\",\r\n    \"auditData\": {\r\n        \"createdBy\": \"admin\",\r\n        \"createdAt\": \"2022-03-25T10:15:30Z\",\r\n        \"updatedBy\": \"admin\",\r\n        \"updatedAt\": \"2022-03-25T10:15:30Z\"\r\n    }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/badge-system/locations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Create Event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Annual Conference\",\r\n  \"description\": \"An annual conference for professionals\",\r\n  \"accountType\": \"DINING_POINTS\",\r\n  \"startDateTime\": \"2023-05-15T09:00:00\",\r\n  \"endDateTime\": \"2023-05-17T17:00:00\",\r\n  \"schedule\": [],\r\n  \"participants\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/badge-system/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"events"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "Create Member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Michael\",\r\n    \"lastName\": \"Knight\",\r\n    \"email\": \"mike.knight@example.com\",\r\n    \"barCode\": \"ABCD12345\",\r\n    \"role\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"ROLE_USER\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"name\": \"ROLE_ADMIN\"\r\n        }\r\n    ],\r\n    \"accounts\": [\r\n        {\r\n            \"id\": 1,\r\n            \"balance\": 1000.00,\r\n            \"accountType\": \"CHECKING\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"balance\": 5000.00,\r\n            \"accountType\": \"SAVINGS\"\r\n        }\r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Members (Fetch All)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members?fetch-all=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members"
+							],
+							"query": [
+								{
+									"key": "fetch-all",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Members (Paged)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Member by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Count of Members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Members (Paged)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/search?query=name:Payman",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "name:Payman"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Members (Fetch All)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/search?fetch-all=true&query=name:Payman",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"search"
+							],
+							"query": [
+								{
+									"key": "fetch-all",
+									"value": "true"
+								},
+								{
+									"key": "query",
+									"value": "name:Payman"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Members Count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/search/count?query=name:Payman",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"search",
+								"count"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "name:Payman"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advanced Use-cases",
+			"item": [
+				{
+					"name": "1. Scanner",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/scanners/code/records",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"scanners",
+								"code",
+								"records"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Roles",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/2/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"2",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Attendance for Event",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/events/1/attendance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"events",
+								"1",
+								"attendance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Attendance Single member",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/1/attendance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"1",
+								"attendance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Attendance Single member on Event",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/members/1/events/1/attendance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"members",
+								"1",
+								"events",
+								"1",
+								"attendance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Attendance - Axel",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "user",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/badge-system/accounts/1/attendance/2024-01-01/2024-02-15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"accounts",
+								"1",
+								"attendance",
+								"2024-01-01",
+								"2024-02-15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Savings Account\",\r\n  \"description\": \"A savings account for long-term savings\",\r\n  \"defaultValue\": 10000.0,\r\n  \"currentValue\": 12000.0,\r\n  \"type\": \"ATTENDANCE_POINTS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/badge-system/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"badge-system",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "user",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

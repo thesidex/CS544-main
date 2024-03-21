@@ -177,4 +177,28 @@ public class AttendanceServiceImpl extends BaseReadWriteServiceImpl<AttendancePa
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
 
     }
+
+    @Override
+    public ResponseEntity<?>  attendanceByMemberAndEvent(long memberId, long eventId) {
+        // Call the repository method to retrieve attendance details by member and event
+        List<Attendance> attendanceList = attendanceRepository.findByMemberIdAndEventId(memberId, eventId);
+
+        // Convert the list of Attendance entities to a list of AttendancePayload objects
+        List<AttendancePayload> attendancePayloadList = convertToPayloadList(attendanceList);
+
+        return new ResponseEntity<>(attendancePayloadList, HttpStatus.OK);
+    }
+
+    // Method to convert a list of Attendance entities to a list of AttendancePayload objects
+    private List<AttendancePayload> convertToPayloadList(List<Attendance> attendanceList) {
+        List<AttendancePayload> payloadList = new ArrayList<>();
+        for (Attendance attendance : attendanceList) {
+            AttendancePayload payload = new AttendancePayload();
+            // Populate payload attributes from Attendance entity
+            payload.setId(attendance.getId());
+            // Set other attributes as needed
+            payloadList.add(payload);
+        }
+        return payloadList;
+    }
 }
