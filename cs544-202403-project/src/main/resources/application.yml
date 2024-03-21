@@ -1,0 +1,54 @@
+common:
+  security:
+    enabled: false
+  feign-oauth:
+    enabled: false
+  mvc:
+    enabled: false
+server:
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /badge-system
+spring:
+  security:
+    user:
+      name: user
+      password: 123
+  application:
+    name: cs544-202403-project
+  datasource:
+    url: jdbc:mysql://localhost:3306/cs544?useSSL=false&serverTimezone=UTC
+    username: root
+    password: PureLife!23
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximumPoolSize: 10
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: gid
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "edu.miu.cs.cs544.service.contract"
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+logging:
+  level:
+    root: INFO
+  file:
+    name: /CS544/Logging/${spring.application.name}/logs
